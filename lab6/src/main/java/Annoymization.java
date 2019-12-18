@@ -46,12 +46,14 @@ public class Annoymization {
         if (count == 0)
             responce = fetch(asyncHttpClient.prepareGet(url).build());
         else
-            responce = requestToRandomServer();
+            responce = requestToRandomServer(url,count-1);
 
         return completeOKWithFutureString(responce.thenApply(Response::getResponseBody));
     }
 
-    private CompletionStage<Response> requestToRandomServer() {
+    private CompletionStage<Response> requestToRandomServer(String url, int count) {
+        CompletionStage<Response>
+        return
     }
 
     private CompletionStage<Response> fetch(Request request) {
