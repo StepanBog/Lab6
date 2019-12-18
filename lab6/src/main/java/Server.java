@@ -16,13 +16,13 @@ public class Server {
 
     private void watchChildren(WatchedEvent watchedEvent) {
         if (watchedEvent != null)
+            System.out.println(watchedEvent);
             try{
             saveServers(zoo.getChildren("/servers/",this::watchChildren).stream().map(s->"/servers/").collect(Collectors.toList()));
             }
             catch (Exception e){
                 throw new RuntimeException(e);
             }
-        else
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
