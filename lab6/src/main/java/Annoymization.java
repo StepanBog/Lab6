@@ -8,6 +8,9 @@ import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 
+import static akka.http.javadsl.server.Directives.get;
+import static akka.http.javadsl.server.Directives.parameter;
+
 public class Annoymization {
     private AsyncHttpClient asyncHttpClient;
     private ActorRef storage;
@@ -25,5 +28,9 @@ public class Annoymization {
     }
 
     public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
+        return concat(
+                get(() -> parameter("")
+                )
+        )
     }
 }
