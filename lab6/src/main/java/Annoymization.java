@@ -74,7 +74,7 @@ public class Annoymization {
     private String getServerUrl(String server) {
         try {
             String str = new String(zoo.getData(server, false, null));
-            return "http://" + str;
+            return str;
         }catch (Exception e){
             throw new RuntimeException(e);
         }

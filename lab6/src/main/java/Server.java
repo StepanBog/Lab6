@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Server {
     private ZooKeeper zoo;
     private ActorRef storage;
+
     public Server(ZooKeeper zoo, ActorRef storage){
         this.zoo = zoo;
         this.storage = storage;
@@ -18,7 +19,9 @@ public class Server {
         if (watchedEvent != null)
             System.out.println(watchedEvent.toString());
         try{
-            saveServers(zoo.getChildren("/servers",this::watching).stream().map(s->"/servers/" + s).collect(Collectors.toList()));
+            saveServers(zoo.getChildren("/servers",this::watching).stream()
+                    .map(s->"/servers/" + s)
+                    .collect(Collectors.toList()));
         }
         catch (Exception e){
             throw new RuntimeException(e);
@@ -42,6 +45,6 @@ public class Server {
 
         }
         System.out.println();
-        storage.tell(new PutSeverList(servers),ActorRef.noSender());
+        this.storage.tell(new PutSeverList(servers),ActorRef.noSender());
     }
 }

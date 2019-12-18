@@ -27,11 +27,12 @@ public class StrageActor extends AbstractActor {
     }
 
     public void getRandomServer(GetRandomServer getRandServ) {
-        getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
+        getSender().tell(
+                new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
     }
 
     public void deleteServer(Deleteserver server){
-        storage.remove(server.getServer());
+        this.storage.remove(server.getServer());
     }
 
 }
