@@ -65,7 +65,7 @@ public class Annoymization {
                         .handle((responce,expretion)-> {
                             storage.tell(new Deleteserver(server),ActorRef.noSender());
                             return responce;
-                        });
+                        })
 
         );
 
