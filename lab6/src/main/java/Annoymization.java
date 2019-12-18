@@ -1,18 +1,12 @@
-import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
-import akka.http.javadsl.model.HttpRequest;
-import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
-import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 
-import static akka.http.javadsl.server.Directives.get;
+import static akka.http.javadsl.server.Directives.*;
 import static akka.http.javadsl.server.Directives.parameter;
-import static akka.stream.impl.Pop.concat;
-
 
 public class Annoymization {
     private AsyncHttpClient asyncHttpClient;
@@ -30,7 +24,7 @@ public class Annoymization {
         this.http = http;
     }
 
-    public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
+    public Route createRoute() {
         return concat(
                 get(() -> parameter("url",url ->
                         parameter("count",count ->
