@@ -11,7 +11,12 @@ public class Server {
     public Server(ZooKeeper zoo, ActorRef storage){
         this.zoo = zoo;
         this.storage = storage;
+        watching(null);
+    }
 
+    private void watching(WatchedEvent event) {
+        if (event == null)
+            
     }
 
     private void watchChildren(WatchedEvent watchedEvent) {
