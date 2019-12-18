@@ -14,18 +14,11 @@ public class Server {
         watching(null);
     }
 
-    private void watching(WatchedEvent event) {
-        if (event != null)
-            System.out.println(event.toString());
-        
-
-    }
-
-    private void watchChildren(WatchedEvent watchedEvent) {
+    private void watching(WatchedEvent watchedEvent) {
         if (watchedEvent != null)
             System.out.println(watchedEvent.toString());
         try{
-            saveServers(zoo.getChildren("/servers/",this::watchChildren).stream().map(s->"/servers/").collect(Collectors.toList()));
+            saveServers(zoo.getChildren("/servers/",this::watching).stream().map(s->"/servers/").collect(Collectors.toList()));
         }
         catch (Exception e){
             throw new RuntimeException(e);
