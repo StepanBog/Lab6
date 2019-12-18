@@ -42,7 +42,7 @@ public class Lab6 {
         Server server = new Server(zoo,storage);
         server.createServer(host,port);
         Annoymization app = new Annoymization(asyncHttpClient,storage,materializer,zoo,http);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.create
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
