@@ -1,6 +1,10 @@
+import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.model.HttpRequest;
+import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
+import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 
@@ -18,5 +22,8 @@ public class Annoymization {
         this.materializer = materializer;
         this.zoo = zoo;
         this.http = http;
+    }
+
+    public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
     }
 }
