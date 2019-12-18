@@ -9,6 +9,7 @@ public class Annoymization {
     private ActorRef storage;
     private ActorMaterializer materializer;
     private ZooKeeper zoo;
+    private Http http;
 
     public Annoymization(AsyncHttpClient asyncHttpClient, ActorRef storage, ActorMaterializer materializer, ZooKeeper zoo, Http http) {
 
@@ -16,5 +17,6 @@ public class Annoymization {
         this.storage = storage;
         this.materializer = materializer;
         this.zoo = zoo;
+        this.http = http;
     }
 }
