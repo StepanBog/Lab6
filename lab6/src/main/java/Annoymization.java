@@ -80,7 +80,7 @@ public class Annoymization {
     }
 
     private Request createRequest(String server,String url, int count){
-        return asyncHttpClient.prepareGet("servers/"+server)
+        return asyncHttpClient.prepareGet(server)
                 .addQueryParam("url",url)
                 .addQueryParam("count",Integer.toString(count))
                 .build();
