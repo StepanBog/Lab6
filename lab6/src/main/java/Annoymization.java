@@ -41,7 +41,7 @@ public class Annoymization {
     private Route analyseUrlCount(String url, String count) {
         CompletionStage<Response> responce;
         if (count == 0)
-            responce = fetch
+            responce = fetch(asyncHttpClient.prepareGet(url))
 
     }
 }
