@@ -60,13 +60,13 @@ public class Annoymization {
         return FutureConverters.toJava(Patterns.ask(storage,new GetRandomServer(),5000))
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
-                .thenCompose(server -> {
+                .thenCompose(server ->
                     fetch(createRequest(getServerUrl(server),url,count))
                         .handle((responce,expretion)-> {
                             storage.tell(new Deleteserver(server),ActorRef.noSender());
                             return responce;
                         });
-                    }
+
         );
 
     }
