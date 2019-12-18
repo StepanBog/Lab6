@@ -68,7 +68,7 @@ public class Annoymization {
     }
 
     private Request createRequest(String server,String url, int count){
-        return 
+        return asyncHttpClient.
     }
 
     private CompletionStage<Response> fetch(Request request) {
