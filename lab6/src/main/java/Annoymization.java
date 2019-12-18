@@ -63,7 +63,7 @@ public class Annoymization {
     }
 
     private String getServerUrl(String server) {
-        
+        return zoo.getData()
     }
 
     private CompletionStage<Response> fetch(Request request) {
