@@ -1,6 +1,8 @@
 import akka.actor.ActorRef;
 import org.apache.zookeeper.*;
 
+import java.util.List;
+
 public class Server {
     private ZooKeeper zoo;
     private ActorRef storage;
@@ -19,5 +21,7 @@ public class Server {
         zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
     }
 
-    public void  safeServers()
+    public void  safeServers(List<String> servers){
+        storage.tell(PutSeverList.class,ActorRef.noSender());
+    }
 }
