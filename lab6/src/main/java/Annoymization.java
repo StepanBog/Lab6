@@ -4,6 +4,11 @@ import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
+import org.asynchttpclient.Request;
+
+import javax.annotation.processing.Completion;
+
+import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
 import static akka.http.javadsl.server.Directives.parameter;
@@ -33,7 +38,8 @@ public class Annoymization {
     }
 
     private Route analyseUrlCount(String url, String count) {
+        CompletionStage<Request> res
         if (count == 0)
-            
+
     }
 }
