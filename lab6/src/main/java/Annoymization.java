@@ -60,12 +60,20 @@ public class Annoymization {
         return FutureConverters.toJava(Patterns.ask(storage,new GetRandomServer(),5000))
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
-                .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count))
-                .handle((responce,expretion)-> {
-                    storage.tell(new Deleteserver(server),ActorRef.noSender());
-                    return responce;
-                })
-        });
+                .thenCompose(server -> {
+                    try {
+                        return fetch(createRequest(getServerUrl(server),url,count))
+                        .handle((responce,expretion)-> {
+                            storage.tell(new Deleteserver(server),ActorRef.noSender());
+                            return responce;
+                        });
+                    } catch (KeeperException e) {
+                       throw new RuntimeException(e);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+        );
 
     }
 
@@ -73,7 +81,7 @@ public class Annoymization {
         try {
             return String.valueOf(zoo.getData(server, false, null));
         }catch (Exception e){
-            return throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 
