@@ -32,9 +32,8 @@ public class Annoymization {
         return concat(
                 get(() -> parameter("url",url ->
                         parameter("count",count ->
-                                analyseUrlCount(url,count);
-                                )))
-        );
+                                analyseUrlCount(url,count)
+                                ))));
     }
 
     private Route analyseUrlCount(String url, String count) {
