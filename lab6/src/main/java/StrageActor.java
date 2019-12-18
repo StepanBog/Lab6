@@ -28,6 +28,7 @@ public class StrageActor extends AbstractActor {
 
     public void getRandomServer(GetRandomServer getRandServ) {
         int i  = rand.nextInt(storage.size());
+        System.out.print(i);
             getSender().tell(
                     new ServerMsg(storage.get(i)), ActorRef.noSender());
 
