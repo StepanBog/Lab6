@@ -13,6 +13,7 @@ import scala.compat.java8.FutureConverters;
 
 import javax.annotation.processing.Completion;
 
+import java.util.Arrays;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Future;
 import java.util.regex.Pattern;
@@ -73,7 +74,7 @@ public class Annoymization {
 
     private String getServerUrl(String server) throws KeeperException, InterruptedException {
         try {
-            return String.valueOf(zoo.getData(server, false, null));
+            return Arrays.toString(zoo.getData(server, false, null));
         }catch (Exception e){
             throw new RuntimeException(e);
         }
