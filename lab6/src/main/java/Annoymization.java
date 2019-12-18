@@ -5,6 +5,7 @@ import akka.stream.ActorMaterializer;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.Request;
+import org.asynchttpclient.Response;
 
 import javax.annotation.processing.Completion;
 
@@ -38,8 +39,9 @@ public class Annoymization {
     }
 
     private Route analyseUrlCount(String url, String count) {
-        CompletionStage<Request> res
+        CompletionStage<Response> responce;
         if (count == 0)
+            responce = fetch
 
     }
 }
