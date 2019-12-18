@@ -21,6 +21,7 @@ public class StrageActor extends AbstractActor {
     }
 
     private  void putServers(PutSeverList putServers) {
+        storage.clear();
         storage.addAll(putServers.getList());
     }
 
