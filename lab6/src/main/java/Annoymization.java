@@ -62,6 +62,9 @@ public class Annoymization {
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count)))
     }
 
+    private Object getServerUrl(String server) {
+    }
+
     private CompletionStage<Response> fetch(Request request) {
         log.info(request.getUri());
         return asyncHttpClient.executeRequest(request).toCompletableFuture();
