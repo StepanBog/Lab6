@@ -1,8 +1,5 @@
 import akka.actor.ActorRef;
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.ZooDefs;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 
 public class Server {
     private ZooKeeper zoo;
@@ -18,7 +15,7 @@ public class Server {
         System.out.println("Server created");
     }
 
-    public void close() {
-        
+    public void close() throws KeeperException, InterruptedException {
+        zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
     }
 }
