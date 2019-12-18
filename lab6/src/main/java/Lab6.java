@@ -27,7 +27,7 @@ public class Lab6 {
     public static void main(String[] args) throws IOException {
         ActorSystem system = ActorSystem.create("lab6");
         String host = args[0];
-        int port = args[1];
+        int port = Integer.parseInt(args[1]);
         ZooKeeper zoo = new ZooKeeper("123.0.0.1:2181",3000,);
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
