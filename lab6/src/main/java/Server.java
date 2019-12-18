@@ -14,7 +14,7 @@ public class Server {
 
     private void watchChildren(WatchedEvent watchedEvent) throws KeeperException, InterruptedException {
         if (watchedEvent != null)
-            saveServers(zoo.getChildren("/servers/",this::watchChildren()).st)
+            saveServers(zoo.getChildren("/servers/",this::watchChildren()).stream.)
         else
 
     }
