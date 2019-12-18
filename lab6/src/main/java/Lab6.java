@@ -36,7 +36,7 @@ public class Lab6 {
         ActorRef storage = system.actorOf((Props.create(StrageActor.class)));
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        Server serv;
+        Server server = new Server(zoo,storage);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
