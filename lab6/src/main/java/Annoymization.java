@@ -11,10 +11,12 @@ import javax.annotation.processing.Completion;
 
 import java.util.concurrent.CompletionStage;
 
+
 import static akka.http.javadsl.server.Directives.*;
 import static akka.http.javadsl.server.Directives.parameter;
 
 public class Annoymization {
+    private Logger log = new Logger(Annoymization.class.getName());
     private AsyncHttpClient asyncHttpClient;
     private ActorRef storage;
     private ActorMaterializer materializer;
