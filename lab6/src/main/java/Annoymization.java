@@ -8,11 +8,13 @@ public class Annoymization {
     private AsyncHttpClient asyncHttpClient;
     private ActorRef storage;
     private ActorMaterializer materializer;
+    private ZooKeeper zoo;
 
     public Annoymization(AsyncHttpClient asyncHttpClient, ActorRef storage, ActorMaterializer materializer, ZooKeeper zoo, Http http) {
 
         this.asyncHttpClient = asyncHttpClient;
         this.storage = storage;
         this.materializer = materializer;
+        this.zoo = zoo;
     }
 }
