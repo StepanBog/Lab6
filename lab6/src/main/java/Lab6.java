@@ -14,6 +14,7 @@ import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.log4j.Logger;
+import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
 import scala.concurrent.Future;
 
@@ -26,7 +27,7 @@ import static akka.http.javadsl.server.Directives.*;
 public class Lab6 {
     private ActorRef routerActor;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
 
         String host = args[0];
         int port = Integer.parseInt(args[1]);
@@ -37,8 +38,10 @@ public class Lab6 {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
+        server.createServer(host,port);
+        Annoymization app = new
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                instance.createRoute().flow(system, materializer);
+
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost("localhost", 8080),
