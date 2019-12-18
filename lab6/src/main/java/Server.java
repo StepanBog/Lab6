@@ -13,10 +13,10 @@ public class Server {
 
     }
 
-    private void watchChildren(WatchedEvent watchedEvent) throws KeeperException, InterruptedException {
+    private void watchChildren(WatchedEvent watchedEvent) {
         if (watchedEvent != null)
             try{
-            saveServers(zoo.getChildren("/servers/",this::watchChildren());
+            saveServers(zoo.getChildren("/servers/",this::watchChildren()));
             }
             catch (Exception e){
                 throw new RuntimeException(e);
