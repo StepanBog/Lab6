@@ -48,7 +48,7 @@ public class Annoymization {
     }
 
     private CompletionStage<Response> fetch(Request request) {
-        log.info(request.getUrl());
+        log.info(request.getUri());
         return asyncHttpClient.executeRequest(request).toCompletableFuture();
     }
 }
