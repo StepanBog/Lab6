@@ -73,15 +73,14 @@ public class Annoymization {
 
     private String getServerUrl(String server) {
         try {
-            return "http:/"+server;
-            //return new String(zoo.getData(server, false, null));
+            return new String(zoo.getData(server, false, null));
         }catch (Exception e){
             throw new RuntimeException(e);
         }
     }
 
     private Request createRequest(String server,String url, int count){
-        return asyncHttpClient.prepareGet(server.replace("http://servers/",""))
+        return asyncHttpClient.prepareGet(server)
                 .addQueryParam("url",url)
                 .addQueryParam("count",Integer.toString(count))
                 .build();
