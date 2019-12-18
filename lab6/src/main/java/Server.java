@@ -14,7 +14,7 @@ public class Server {
 
     private void watchChildren(WatchedEvent watchedEvent){
         if (watchedEvent != null)
-            saveServers(zoo.getChildren());
+            saveServers(zoo.getChildren("/server/"));
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
@@ -24,7 +24,7 @@ public class Server {
     }
 
     public void close() throws KeeperException, InterruptedException {
-        zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
+        zoo.removeAllWatches("/server/", Watcher.WatcherType.Any,true);
     }
 
     public void  saveServers(List<String> servers){
