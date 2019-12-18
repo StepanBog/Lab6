@@ -17,4 +17,8 @@ public class Server {
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Server created");
     }
+
+    public void close() {
+        
+    }
 }

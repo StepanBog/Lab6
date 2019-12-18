@@ -51,6 +51,9 @@ public class Lab6 {
         );
         System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
         System.in.read();
+        asyncHttpClient.close();
+        server.close();
+        zoo.close();
         binding
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
