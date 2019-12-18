@@ -67,7 +67,10 @@ public class Annoymization {
         return String.valueOf(zoo.getData(server,false,null));
     }
 
-    private Request createRequest(CompletionStage)
+    private Request createRequest(String server,String url, int count){
+        return 
+    }
+
     private CompletionStage<Response> fetch(Request request) {
         log.info(request.getUri());
         return asyncHttpClient.executeRequest(request).toCompletableFuture();
