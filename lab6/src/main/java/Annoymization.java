@@ -7,11 +7,13 @@ import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.Request;
 import org.asynchttpclient.Response;
+import scala.compat.java8.FutureConverters;
 
 import javax.annotation.processing.Completion;
 
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Future;
+import java.util.regex.Pattern;
 
 
 import static akka.http.javadsl.server.Directives.*;
@@ -53,7 +55,7 @@ public class Annoymization {
     }
 
     private CompletionStage<Response> requestToRandomServer(String url, int count) {
-        return Future
+        return FutureConverters.toJava(Pattern(ask))
     }
 
     private CompletionStage<Response> fetch(Request request) {
