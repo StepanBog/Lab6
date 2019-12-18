@@ -1,6 +1,7 @@
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import org.apache.log4j.Logger;
 import org.apache.zookeeper.ZooKeeper;
@@ -55,7 +56,7 @@ public class Annoymization {
     }
 
     private CompletionStage<Response> requestToRandomServer(String url, int count) {
-        return FutureConverters.toJava(Pattern(ask))
+        return FutureConverters.toJava(Patterns.ask(storage,new GetRandomServer()));
     }
 
     private CompletionStage<Response> fetch(Request request) {
