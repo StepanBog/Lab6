@@ -14,7 +14,7 @@ public class Server {
 
     private void watchChildren(WatchedEvent watchedEvent){
         if (watchedEvent != null)
-            saveServers();
+            saveServers(zoo.getChildren());
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
