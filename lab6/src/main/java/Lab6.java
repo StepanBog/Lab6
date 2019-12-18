@@ -24,7 +24,7 @@ import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
 
-
+import static org.asynchttpclient.Dsl.asyncHttpClient;
 public class Lab6 {
     private ActorRef routerActor;
 
@@ -41,7 +41,7 @@ public class Lab6 {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
         server.createServer(host,port);
-        Annoymization app = new Annoymization()
+        Annoymization app = new Annoymization(asyncHttpClient,storage,materializer,system)
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
