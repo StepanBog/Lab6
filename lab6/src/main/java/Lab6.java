@@ -35,11 +35,12 @@ public class Lab6 {
         ZooKeeper zoo = new ZooKeeper("123.0.0.1:2181",3000, e->log.info(e.toString()));
         ActorSystem system = ActorSystem.create("lab6");
         ActorRef storage = system.actorOf((Props.create(StrageActor.class)));
+        AsyncHttpClient asyncHttpClient =
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
         server.createServer(host,port);
-        Annoymization app = new
+        Annoymization app = new Annoymization()
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
