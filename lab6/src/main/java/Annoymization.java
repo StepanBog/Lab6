@@ -43,11 +43,12 @@ public class Annoymization {
         if (count == 0)
             responce = fetch(asyncHttpClient.prepareGet(url).build());
         else
-            re
+
 
     }
 
     private CompletionStage<Response> fetch(Request request) {
+        
         return asyncHttpClient.executeRequest(request).toCompletableFuture();
     }
 }
