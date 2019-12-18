@@ -22,6 +22,6 @@ public class Server {
     }
 
     public void  safeServers(List<String> servers){
-        storage.tell(PutSeverList.class,ActorRef.noSender());
+        storage.tell(new PutSeverList(servers),ActorRef.noSender());
     }
 }

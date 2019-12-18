@@ -43,7 +43,7 @@ public class Annoymization {
         if (count == 0)
             responce = fetch(asyncHttpClient.prepareGet(url).build());
         else
-            responce =
+            responce = 
 
     }
 
