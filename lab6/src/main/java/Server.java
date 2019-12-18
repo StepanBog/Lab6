@@ -26,7 +26,7 @@ public class Server {
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
-        zoo.create("servers",(host + ":" + port).getBytes(),
+        zoo.create("/servers",(host + ":" + port).getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Server created");
     }
