@@ -26,7 +26,6 @@ import static akka.http.javadsl.server.Directives.*;
 
 import static org.asynchttpclient.Dsl.asyncHttpClient;
 public class Lab6 {
-    private ActorRef routerActor;
 
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
 
