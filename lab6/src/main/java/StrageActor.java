@@ -10,7 +10,7 @@ public class StrageActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return receiveBuilder()
-                .match()
+                .match(GetRandomServer.class)
     }
 
     StrageActor(){
