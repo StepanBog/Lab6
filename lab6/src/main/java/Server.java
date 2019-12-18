@@ -13,7 +13,8 @@ public class Server {
     }
 
     private void watchChildren(WatchedEvent watchedEvent){
-        
+        if (watchedEvent == null)
+            
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
         zoo.create("/servers/",(host + ":" + port).getBytes(),
