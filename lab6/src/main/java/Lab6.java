@@ -12,6 +12,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import org.apache.zookeeper.ZooKeeper;
 import scala.concurrent.Future;
 
 import java.io.IOException;
@@ -24,8 +25,10 @@ public class Lab6 {
     private ActorRef routerActor;
 
     public static void main(String[] args) throws IOException {
-        ActorSystem system = ActorSystem.create("lab4");
-
+        ActorSystem system = ActorSystem.create("lab6");
+        String host = args[0];
+        int port = args[1];
+        ZooKeeper zoo = new ZooKeeper("123.0.0.1:2181",3000,this);
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
