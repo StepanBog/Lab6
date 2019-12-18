@@ -13,6 +13,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import com.ning.http.client.AsyncHttpClient;
 import org.apache.log4j.Logger;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
@@ -35,7 +36,7 @@ public class Lab6 {
         ZooKeeper zoo = new ZooKeeper("123.0.0.1:2181",3000, e->log.info(e.toString()));
         ActorSystem system = ActorSystem.create("lab6");
         ActorRef storage = system.actorOf((Props.create(StrageActor.class)));
-        AsyncHttpClient asyncHttpClient =
+        AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
