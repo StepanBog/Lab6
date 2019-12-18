@@ -61,14 +61,14 @@ public class Annoymization {
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count))
-                .handle()
+                .handle(responce,expretion)
     }
 
     private String getServerUrl(String server) throws KeeperException, InterruptedException {
         try {
             return String.valueOf(zoo.getData(server, false, null));
         }catch (Exception e){
-            return throw 
+            return throw new RuntimeException(e);
         }
     }
 
