@@ -11,6 +11,7 @@ import org.asynchttpclient.Response;
 import javax.annotation.processing.Completion;
 
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.Future;
 
 
 import static akka.http.javadsl.server.Directives.*;
@@ -52,8 +53,7 @@ public class Annoymization {
     }
 
     private CompletionStage<Response> requestToRandomServer(String url, int count) {
-        CompletionStage<Response>
-        return
+        return Future
     }
 
     private CompletionStage<Response> fetch(Request request) {
