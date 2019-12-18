@@ -9,6 +9,7 @@ public class Server {
     public Server(ZooKeeper zoo, ActorRef storage){
         this.zoo = zoo;
         this.storage = storage;
+        
     }
 
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
