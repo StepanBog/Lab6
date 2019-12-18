@@ -18,7 +18,7 @@ public class Server {
             saveServers(zoo.getChildren("/servers/",this::watchChildren());
             }
             catch (Exception e){
-                return;
+                thr
             }
         else
 
