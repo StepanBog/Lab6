@@ -46,7 +46,7 @@ public class Annoymization {
 
     }
 
-    private CompletionStage<Response> fetch(Request build) {
-        return CompletionStage<>
+    private CompletionStage<Response> fetch(Request request) {
+        return (CompletionStage<Response>) asyncHttpClient.executeRequest(request);
     }
 }
