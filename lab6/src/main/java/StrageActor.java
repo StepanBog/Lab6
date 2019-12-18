@@ -1,4 +1,5 @@
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,7 +16,7 @@ public class StrageActor extends AbstractActor {
     }
 
     private void getRandomServer(GetRandomServer getRandServ) {
-        getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))));
+        getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
     }
 
     StrageActor(){
