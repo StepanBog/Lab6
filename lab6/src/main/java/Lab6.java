@@ -41,7 +41,7 @@ public class Lab6 {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
         server.createServer(host,port);
-        Annoymization app = new Annoymization(asyncHttpClient,storage,materializer,system)
+        Annoymization app = new Annoymization(asyncHttpClient,storage,materializer,zoo,http);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
