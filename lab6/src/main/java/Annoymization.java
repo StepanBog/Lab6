@@ -34,14 +34,15 @@ public class Annoymization {
         return concat(
                 get(() -> parameter("url",url ->
                         parameter("count",count ->
-                                analyseUrlCount(url,count)
+                                analyseUrlCount(url,Integer.parseInt(count))
                                 ))));
     }
 
-    private Route analyseUrlCount(String url, String count) {
+    private Route analyseUrlCount(String url, int count) {
         CompletionStage<Response> responce;
         if (count == 0)
-            responce = fetch(asyncHttpClient.prepareGet(url))
+            responce = fetch(asyncHttpClient.prepareGet(url).build())
+        else
 
     }
 }
