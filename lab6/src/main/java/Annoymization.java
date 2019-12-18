@@ -45,4 +45,8 @@ public class Annoymization {
         else
 
     }
+
+    private CompletionStage<Response> fetch(Request build) {
+        return CompletionStage<>
+    }
 }
