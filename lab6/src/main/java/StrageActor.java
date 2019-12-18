@@ -17,6 +17,7 @@ public class StrageActor extends AbstractActor {
         return receiveBuilder()
                 .match(GetRandomServer.class,this::getRandomServer)
                 .match(PutSeverList.class,this:: putServers)
+                .match(Deleteserver.class,this::deleteServer)
                 .build();
     }
 
