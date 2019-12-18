@@ -64,9 +64,10 @@ public class Annoymization {
     }
 
     private String getServerUrl(String server) throws KeeperException, InterruptedException {
-        return zoo.getData(server,false,null);
+        return String.valueOf(zoo.getData(server,false,null));
     }
 
+    private CompletionStage<Response> createRequest(CompletionStage)
     private CompletionStage<Response> fetch(Request request) {
         log.info(request.getUri());
         return asyncHttpClient.executeRequest(request).toCompletableFuture();
