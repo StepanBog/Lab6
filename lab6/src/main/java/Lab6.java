@@ -32,7 +32,7 @@ public class Lab6 {
         String host = args[0];
         int port = Integer.parseInt(args[1]);
         Logger log = Logger.getLogger(Main.class.getName());
-        ZooKeeper zoo = new ZooKeeper("123.0.0.1:2181",3000, e->log.info(e.toString()));
+        ZooKeeper zoo = new ZooKeeper("127.0.0.1:2181",3000, e->log.info(e.toString()));
         ActorSystem system = ActorSystem.create("lab6");
         ActorRef storage = system.actorOf((Props.create(StrageActor.class)));
         AsyncHttpClient asyncHttpClient = asyncHttpClient();
