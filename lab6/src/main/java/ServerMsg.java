@@ -1,10 +1,10 @@
 public class ServerMsg {
-    private int randServer;
+    private String randServer;
     public ServerMsg(String s) {
-        randServer = Integer.parseInt(s);
+        randServer = s;
     }
 
-    public int getRandServer() {
+    public String getRandServer() {
         return randServer;
     }
 }
