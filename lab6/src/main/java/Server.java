@@ -18,4 +18,6 @@ public class Server {
     public void close() throws KeeperException, InterruptedException {
         zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
     }
+
+    public void  safeServers()
 }
