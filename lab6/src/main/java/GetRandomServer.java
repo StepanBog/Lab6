@@ -5,4 +5,8 @@ public class GetRandomServer {
 
     GetRandomServer(){
     }
+
+    public Random getServer() {
+        return server;
+    }
 }
