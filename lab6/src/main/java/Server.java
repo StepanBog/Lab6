@@ -3,6 +3,7 @@ import akka.testkit.TestActors;
 import org.apache.zookeeper.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Server {
     private ZooKeeper zoo;
@@ -16,7 +17,7 @@ public class Server {
     private void watchChildren(WatchedEvent watchedEvent) {
         if (watchedEvent != null)
             try{
-            saveServers(zoo.getChildren("/servers/",this::watchChildren).stream().map(s->"/servers/"));
+            saveServers(zoo.getChildren("/servers/",this::watchChildren).stream().map(s->"/servers/").collect(Collectors.toList()));
             }
             catch (Exception e){
                 throw new RuntimeException(e);
