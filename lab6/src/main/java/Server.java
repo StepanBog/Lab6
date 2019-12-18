@@ -16,7 +16,7 @@ public class Server {
     private void watchChildren(WatchedEvent watchedEvent) {
         if (watchedEvent != null)
             try{
-            saveServers(zoo.getChildren("/servers/",this::watchChildren()));
+            saveServers(zoo.getChildren("/servers/",this::watchChildren).stream().map(s->));
             }
             catch (Exception e){
                 throw new RuntimeException(e);
