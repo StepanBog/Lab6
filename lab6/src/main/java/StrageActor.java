@@ -15,7 +15,7 @@ public class StrageActor extends AbstractActor {
     }
 
     private void getRandomServer(GetRandomServer getRandServ) {
-        getSender().tell()
+        getSender().tell(new Servermsg())
     }
 
     StrageActor(){
