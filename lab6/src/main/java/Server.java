@@ -36,6 +36,11 @@ public class Server {
     }
 
     public void  saveServers(List<String> servers){
+        for (int i= 0;
+            i < servers.size(); i++ ) {
+            System.out.print(servers.get(i) + " ");
+
+        }
         storage.tell(new PutSeverList(servers),ActorRef.noSender());
     }
 }
