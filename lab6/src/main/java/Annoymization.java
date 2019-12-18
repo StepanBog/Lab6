@@ -29,7 +29,9 @@ public class Annoymization {
 
     public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
         return concat(
-                get(() -> parameter("")
+                get(() -> parameter("url",url ->
+                        parameter("count",count ->
+                                ))
                 )
         )
     }
