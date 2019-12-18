@@ -65,7 +65,11 @@ public class Annoymization {
     }
 
     private String getServerUrl(String server) throws KeeperException, InterruptedException {
-        return String.valueOf(zoo.getData(server,false,null));
+        try {
+            return String.valueOf(zoo.getData(server, false, null));
+        }catch (Exception e){
+            return throw 
+        }
     }
 
     private Request createRequest(String server,String url, int count){
