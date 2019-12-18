@@ -18,7 +18,7 @@ public class Server {
         if (watchedEvent != null)
             System.out.println(watchedEvent.toString());
         try{
-            saveServers(zoo.getChildren("/servers",this::watching).stream().map(s->"/servers").collect(Collectors.toList()));
+            saveServers(zoo.getChildren("/servers",this::watching).stream().map(s->"/servers/" + s).collect(Collectors.toList()));
         }
         catch (Exception e){
             throw new RuntimeException(e);
@@ -26,13 +26,13 @@ public class Server {
 
     }
     public void createServer(String host, int port,String name) throws KeeperException, InterruptedException {
-        zoo.create("/servers" + name ,(host + ":" + port).getBytes(),
+        zoo.create("/servers/" + name ,(host + ":" + port).getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Server created");
     }
 
     public void close() throws KeeperException, InterruptedException {
-        zoo.removeAllWatches("servers", Watcher.WatcherType.Any,true);
+        zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
     }
 
     public void  saveServers(List<String> servers){
