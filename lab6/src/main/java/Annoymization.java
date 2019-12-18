@@ -47,7 +47,7 @@ public class Annoymization {
             responce = fetch(asyncHttpClient.prepareGet(url).build());
         else
             responce;
-        return completeOKWithFutureString(responce.applyToEither())
+        return completeOKWithFutureString(responce.thenApply())
     }
 
     private CompletionStage<Response> fetch(Request request) {
