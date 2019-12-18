@@ -14,7 +14,7 @@ import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.asynchttpclient.AsyncHttpClient;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
 import scala.concurrent.Future;
