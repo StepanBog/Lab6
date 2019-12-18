@@ -8,19 +8,24 @@ public class StrageActor extends AbstractActor {
     private ArrayList<String> storage;
     private Random rand;
 
-    @Override
-    public Receive createReceive() {
-        return receiveBuilder()
-                .match(GetRandomServer.class,this::getRandomServer)
-                .build();
-    }
-
-    private void getRandomServer(GetRandomServer getRandServ) {
-        getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
-    }
-
     StrageActor(){
         this.rand = new Random();
         this.storage = new ArrayList<>();
     }
+    @Override
+    public Receive createReceive() {
+        return receiveBuilder()
+                .match(GetRandomServer.class,this::getRandomServer)
+                .match(PutSeverList.class,this:: putServers)
+                .build();
+    }
+
+    public void getRandomServer(GetRandomServer getRandServ) {
+        getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
+    }
+
+    public void
+
+
+
 }
