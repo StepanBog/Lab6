@@ -46,7 +46,7 @@ public class Annoymization {
         if (count == 0)
             responce = fetch(asyncHttpClient.prepareGet(url).build());
         else
-            responce;
+            responce = fetch();
 
         return completeOKWithFutureString(responce.thenApply(Response::getResponseBody));
     }
