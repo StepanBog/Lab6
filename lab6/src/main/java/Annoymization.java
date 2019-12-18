@@ -73,7 +73,8 @@ public class Annoymization {
 
     private String getServerUrl(String server) {
         try {
-            return new String(zoo.getData(server, false, null));
+            return "http://"+server;
+            //return new String(zoo.getData(server, false, null));
         }catch (Exception e){
             throw new RuntimeException(e);
         }
