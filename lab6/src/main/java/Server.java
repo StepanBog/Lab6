@@ -12,9 +12,10 @@ public class Server {
 
     }
 
-    private void watchChildren(WatchedEvent watchedEvent){
+    private void watchChildren(WatchedEvent watchedEvent) throws KeeperException, InterruptedException {
         if (watchedEvent != null)
-            saveServers(zoo.getChildren("/servers/",));
+            saveServers(zoo.getChildren("/servers/",this::watchChildren));
+        else
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
