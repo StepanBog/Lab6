@@ -59,7 +59,7 @@ public class Annoymization {
         return FutureConverters.toJava(Patterns.ask(storage,new GetRandomServer(),5000))
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
-                .thenCompose()
+                .thenCompose(server -> fetch())
     }
 
     private CompletionStage<Response> fetch(Request request) {
