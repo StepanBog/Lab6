@@ -62,7 +62,8 @@ public class Annoymization {
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count)))
     }
 
-    private Object getServerUrl(String server) {
+    private String getServerUrl(String server) {
+        
     }
 
     private CompletionStage<Response> fetch(Request request) {
