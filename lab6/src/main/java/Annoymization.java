@@ -61,18 +61,12 @@ public class Annoymization {
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
                 .thenCompose(server -> {
-                    try {
-                        return fetch(createRequest(getServerUrl(server),url,count))
+                    fetch(createRequest(getServerUrl(server),url,count))
                         .handle((responce,expretion)-> {
                             storage.tell(new Deleteserver(server),ActorRef.noSender());
                             return responce;
                         });
-                    } catch (KeeperException e) {
-                       throw new RuntimeException(e);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
                     }
-                }
         );
 
     }
