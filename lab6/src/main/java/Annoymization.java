@@ -63,8 +63,7 @@ public class Annoymization {
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count))
                 .handle((responce,expretion)-> {
                     storage.tell(new Deleteserver(server),ActorRef.noSender());
-
-
+                    return responce;
                 }
     }
 
