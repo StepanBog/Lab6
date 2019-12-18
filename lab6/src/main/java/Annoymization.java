@@ -11,7 +11,8 @@ import org.asynchttpclient.AsyncHttpClient;
 
 import static akka.http.javadsl.server.Directives.get;
 import static akka.http.javadsl.server.Directives.parameter;
-import static java.util.stream.Stream.concat;
+import static akka.stream.impl.Pop.concat;
+
 
 public class Annoymization {
     private AsyncHttpClient asyncHttpClient;
