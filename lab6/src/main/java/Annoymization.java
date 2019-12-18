@@ -71,7 +71,7 @@ public class Annoymization {
 
     }
 
-    private String getServerUrl(String server) throws KeeperException, InterruptedException {
+    private String getServerUrl(String server) {
         try {
             return String.valueOf(zoo.getData(server, false, null));
         }catch (Exception e){
