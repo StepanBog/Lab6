@@ -15,8 +15,10 @@ public class Server {
     }
 
     private void watching(WatchedEvent event) {
-        if (event == null)
-            
+        if (event != null)
+            System.out.println(event.toString());
+        
+
     }
 
     private void watchChildren(WatchedEvent watchedEvent) {
