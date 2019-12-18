@@ -61,7 +61,7 @@ public class Annoymization {
                 .thenApply(s-> (ServerMsg)s)
                 .thenApply(ser -> ser.getRandServer())
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count))
-                .handle(responce,expretion)
+                .handle((responce,expretion)-> {
     }
 
     private String getServerUrl(String server) throws KeeperException, InterruptedException {
