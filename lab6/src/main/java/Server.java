@@ -12,7 +12,9 @@ public class Server {
 
     }
 
-    private void watchChilds
+    private void watchChildren(WatchedEvent watchedEvent){
+        
+    }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
         zoo.create("/servers/",(host + ":" + port).getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
