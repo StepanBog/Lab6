@@ -26,13 +26,13 @@ public class Server {
 
     }
     public void createServer(String host, int port) throws KeeperException, InterruptedException {
-        zoo.create("/servers/",(host + ":" + port).getBytes(),
+        zoo.create("/servers",(host + ":" + port).getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Server created");
     }
 
     public void close() throws KeeperException, InterruptedException {
-        zoo.removeAllWatches("/servers/", Watcher.WatcherType.Any,true);
+        zoo.removeAllWatches("/servers", Watcher.WatcherType.Any,true);
     }
 
     public void  saveServers(List<String> servers){
