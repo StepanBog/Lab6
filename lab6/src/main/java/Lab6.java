@@ -39,7 +39,7 @@ public class Lab6 {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Server server = new Server(zoo,storage);
-        server.createServer(host,port);
+        server.createServer(host,port, "localhost:" + port);
         Annoymization app = new Annoymization(asyncHttpClient,storage,materializer,zoo,http);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute().flow(system,materializer);
 
