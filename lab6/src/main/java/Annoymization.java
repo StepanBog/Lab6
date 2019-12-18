@@ -5,7 +5,10 @@ import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 
 public class Annoymization {
+    private AsyncHttpClient asyncHttpClient;
+
     public Annoymization(AsyncHttpClient asyncHttpClient, ActorRef storage, ActorMaterializer materializer, ZooKeeper zoo, Http http) {
-    
+
+        this.asyncHttpClient = asyncHttpClient;
     }
 }
