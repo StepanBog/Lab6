@@ -41,6 +41,7 @@ public class Server {
             System.out.print(servers.get(i) + " ");
 
         }
+        System.out.println();
         storage.tell(new PutSeverList(servers),ActorRef.noSender());
     }
 }
