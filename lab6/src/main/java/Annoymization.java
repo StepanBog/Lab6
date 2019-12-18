@@ -3,6 +3,7 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.ZooKeeper;
@@ -31,8 +32,11 @@ public class Annoymization {
         return concat(
                 get(() -> parameter("url",url ->
                         parameter("count",count ->
-                                ))
-                )
-        )
+                                analyseUrlCount(url,count);
+                                )))
+        );
+    }
+
+    private Route analyseUrlCount(String url, String count) {
     }
 }
