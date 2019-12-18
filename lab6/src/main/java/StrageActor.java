@@ -20,6 +20,10 @@ public class StrageActor extends AbstractActor {
                 .build();
     }
 
+    private  void putServers(PutSeverList putServers) {
+        storage.add()
+    }
+
     public void getRandomServer(GetRandomServer getRandServ) {
         getSender().tell(new ServerMsg(storage.get(rand.nextInt(storage.size()))), ActorRef.noSender());
     }
