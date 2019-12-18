@@ -1,4 +1,5 @@
 import akka.actor.ActorRef;
+import akka.testkit.TestActors;
 import org.apache.zookeeper.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class Server {
             saveServers(zoo.getChildren("/servers/",this::watchChildren());
             }
             catch (Exception e){
-                thr
+                throw new Exception(e);
             }
         else
 
