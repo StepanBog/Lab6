@@ -57,7 +57,7 @@ public class Annoymization {
 
     private CompletionStage<Response> requestToRandomServer(String url, int count) {
         return FutureConverters.toJava(Patterns.ask(storage,new GetRandomServer(),5000))
-                .thenApply()
+                .thenApply(s-> (ServerMsg)s)
     }
 
     private CompletionStage<Response> fetch(Request request) {
