@@ -4,6 +4,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import org.apache.log4j.Logger;
+import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.Request;
@@ -62,8 +63,8 @@ public class Annoymization {
                 .thenCompose(server -> fetch(createRequest(getServerUrl(server),url,count)))
     }
 
-    private String getServerUrl(String server) {
-        return zoo.getData(server,true)
+    private String getServerUrl(String server) throws KeeperException, InterruptedException {
+        return zoo.getData(server,false,null);
     }
 
     private CompletionStage<Response> fetch(Request request) {
